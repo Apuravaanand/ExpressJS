@@ -1,4 +1,22 @@
 Lets understand how backend server is created
 1. mkdir EXPRESS
 2. npm init -y // it install by default package.json
-3. npm intall express
+   {
+  "name": "express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Apurava Anand Singh",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
+
+4. npm intall express 
+   "dependencies": {
+    "express": "^5.1.0"
+  }

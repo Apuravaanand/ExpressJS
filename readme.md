@@ -17,4 +17,4 @@ Lets understand how backend server is created
    "dependencies": {
     "express": "^5.1.0"
   }
-4. create a file name index.js
+4. create a file name index.js // i.e server

@@ -35,7 +35,7 @@ app.use((req, res) => {
 
 
 //===================Pathparameter : send a variable to server and server make a response with name=======================
-app.get("/username",(req, res) => {
+app.get("/:username",(req, res) => {
     console.log(req.params);
 });
 

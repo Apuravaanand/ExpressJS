@@ -4,13 +4,14 @@ Lets understand how backend server is created
    {
   "name": "express",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Apurava Anand Singh",
-  "license": "ISC",
-  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
 
 4. npm intall express 

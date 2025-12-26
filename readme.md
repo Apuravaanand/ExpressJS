@@ -13,7 +13,7 @@ Lets understand how backend server is created
   "author": "",
   "license": "ISC"
 }
-3. npm intall express 
+3. npm intall express and optional(nodemon)
    "dependencies": {
     "express": "^5.1.0"
   }
@@ -59,5 +59,9 @@ Lets understand how backend server is created
 6. Run nodemon index.js/node index.js
    -> Our Current Server is running on port 3001
 
+Your backend can now listen for requests
+You’re ready to build APIs, routes, and middleware
+This is the foundation for full-stack apps (MERN, REST APIs, etc.)
+=======================================================================================================================================================
 
    

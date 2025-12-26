@@ -11,9 +11,6 @@ Lets understand how backend server is created
   "author": "Apurava Anand Singh",
   "license": "ISC",
   "description": "",
-  "dependencies": {
-    "express": "^5.1.0"
-  }
 }
 
 4. npm intall express 

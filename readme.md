@@ -13,8 +13,8 @@ Lets understand how backend server is created
   "author": "",
   "license": "ISC"
 }
-
-4. npm intall express 
+3. npm intall express 
    "dependencies": {
     "express": "^5.1.0"
   }
+4. create a file name index.js

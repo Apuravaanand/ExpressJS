@@ -46,7 +46,7 @@ Lets understand how backend server is created
     res.status(404).send("404: Page not found i.e This page is not exist");
     });
    
-6. Extra -> Pathparameter : send a variable to server and server make a response with name
+5. Extra -> Pathparameter : send a variable to server and server make a response with name
     app.get("/:username",(req, res) => {
     console.log(req.params);
     });

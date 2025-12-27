@@ -13,11 +13,11 @@ Lets understand how backend server is created
   "author": "",
   "license": "ISC"
 }
-4. npm intall express and optional(nodemon)
+3. npm intall express and optional(nodemon)
    "dependencies": {
     "express": "^5.1.0"
   }
-5. create a file name index.js // i.e server
+4. create a file name index.js // i.e server
    -> define variable
       const express = require("express");
       const app = express();
@@ -46,7 +46,7 @@ Lets understand how backend server is created
     res.status(404).send("404: Page not found i.e This page is not exist");
     });
    
-6. Extra -> Pathparameter : send a variable to server and server make a response with name
+5. Extra -> Pathparameter : send a variable to server and server make a response with name
     app.get("/:username",(req, res) => {
     console.log(req.params);
     });
@@ -56,7 +56,7 @@ Lets understand how backend server is created
     let htmlstr = `<h1>Welcome Mister @${username}.</h1><h3>Your current id is ${id}</h3> `;
     res.send(htmlstr);
     });
-7. Run nodemon index.js/node index.js
+6. Run nodemon index.js/node index.js
    -> Our Current Server is running on port 3001
 
 Your backend can now listen for requests

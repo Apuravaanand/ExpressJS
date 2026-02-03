@@ -56,7 +56,8 @@ Lets understand how backend server is created
     let htmlstr = `<h1>Welcome Mister @${username}.</h1><h3>Your current id is ${id}</h3> `;
     res.send(htmlstr);
     });
-6. Run nodemon index.js/node index.js
+   
+7. Run nodemon index.js/node index.js
    -> Our Current Server is running on port 3001
 
 Your backend can now listen for requests

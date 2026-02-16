@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const port = 3001; 
 
-// Middleware (optional logging)
 app.use((req, res) => {
     console.log("The request are sent");
 });

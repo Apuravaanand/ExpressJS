@@ -9,9 +9,7 @@ app.use((req, res) => {
 app.listen(port, () => {
     console.log(`Our Current Server is running on port ${port}`);
 });
-
 //=======================================================Routes==========================================================================
-
 app.get("/", (req, res) => {
     // console.log("The request are sent");
     res.send("This is Root path of directory");
@@ -42,4 +40,3 @@ app.get("/username/id",(req, res) => {
     let htmlstr = `<h1>Welcome Mister @${username}.</h1><h3>Your current id is ${id}</h3> `;
     res.send(htmlstr);
 });
-

@@ -129,8 +129,7 @@ const newArr = [...arr, 3];</code></pre>
 <p>Master these basics before moving to Node.js. They are used daily in backend development.</p>
 
 
-
-
+<hr>
 
 
 
@@ -215,3 +214,144 @@ console.log(__filename);  // current file</code></pre>
 
 <h3>✅ Summary</h3>
 <p>Node.js allows developers to run JavaScript outside the browser and build scalable backend systems.</p>
+
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ⚙️ Node.js Core Modules
+
+<p>Core modules are the <b>foundation of Node.js</b>. They allow you to work with files, create servers, handle system operations, and build backend logic without installing external libraries.</p>
+
+
+<h3>🎯 Goal</h3>
+<p>Handle files, servers, paths, and system operations using built-in Node.js modules.</p>
+
+<hr>
+
+<div style="background:#0f172a; padding:20px; border-radius:10px; color:white; font-family:Arial;">
+
+<h2>📘 Modules to Learn</h2>
+
+<ul>
+  <li>fs (File System)</li>
+  <li>path</li>
+  <li>os</li>
+  <li>http</li>
+  <li>events</li>
+  <li>url</li>
+  <li>crypto</li>
+</ul>
+
+<hr>
+
+<h2>1️⃣ fs (File System)</h2>
+<p>Used to read, write, and manage files.</p>
+
+<pre><code>const fs = require('fs');
+
+fs.writeFileSync('test.txt', 'Hello World');
+const data = fs.readFileSync('test.txt', 'utf-8');
+
+console.log(data);</code></pre>
+
+<hr>
+
+<h2>2️⃣ path</h2>
+<p>Helps handle file and directory paths.</p>
+
+<pre><code>const path = require('path');
+
+const filePath = path.join(__dirname, 'test.txt');
+console.log(filePath);</code></pre>
+
+<hr>
+
+<h2>3️⃣ os</h2>
+<p>Provides system-related information.</p>
+
+<pre><code>const os = require('os');
+
+console.log(os.platform());
+console.log(os.cpus());</code></pre>
+
+<hr>
+
+<h2>4️⃣ http</h2>
+<p>Used to create servers.</p>
+
+<pre><code>const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.end('Server Running');
+});
+
+server.listen(3000);</code></pre>
+
+<hr>
+
+<h2>5️⃣ events</h2>
+<p>Used for event-driven programming.</p>
+
+<pre><code>const EventEmitter = require('events');
+
+const emitter = new EventEmitter();
+
+emitter.on('greet', () => {
+  console.log('Hello Event');
+});
+
+emitter.emit('greet');</code></pre>
+
+<hr>
+
+<h2>6️⃣ url</h2>
+<p>Used to parse URLs.</p>
+
+<pre><code>const url = require('url');
+
+const myUrl = new URL('http://localhost:3000/?name=Apurava');
+
+console.log(myUrl.searchParams.get('name'));</code></pre>
+
+<hr>
+
+<h2>7️⃣ crypto</h2>
+<p>Used for hashing and security.</p>
+
+<pre><code>const crypto = require('crypto');
+
+const hash = crypto.createHash('sha256')
+  .update('password')
+  .digest('hex');
+
+console.log(hash);</code></pre>
+
+</div>
+
+<hr>
+
+<h3>✅ Summary</h3>
+<p>Core modules provide powerful built-in tools to handle files, servers, system info, events, and security — essential for backend development.</p>

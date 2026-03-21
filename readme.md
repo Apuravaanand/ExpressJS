@@ -137,7 +137,7 @@ const newArr = [...arr, 3];</code></pre>
 
 
 
-## 🚀 Introduction to Node.js
+# 🚀 Introduction to Node.js
 
 <p>Get comfortable with the <b>Node.js environment</b> and understand how JavaScript runs outside the browser.</p>
 

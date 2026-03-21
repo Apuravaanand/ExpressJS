@@ -131,7 +131,7 @@ const newArr = [...arr, 3];</code></pre>
 
 <hr>
 
-
+<hr>
 
 
 # 🚀 Introduction to Node.js
@@ -216,7 +216,6 @@ console.log(__filename);  // current file</code></pre>
 <p>Node.js allows developers to run JavaScript outside the browser and build scalable backend systems.</p>
 
 
-<hr>
 
 
 
@@ -234,7 +233,7 @@ console.log(__filename);  // current file</code></pre>
 
 
 
-
+<hr><hr>
 
 
 
@@ -356,7 +355,7 @@ console.log(hash);</code></pre>
 <p>Core modules provide powerful built-in tools to handle files, servers, system info, events, and security — essential for backend development.</p>
 
 
-
+<hr><hr>
 
 ## 📦 NPM & Package Management
 
@@ -462,7 +461,7 @@ npm install dotenv</code></pre>
 <p>npm helps manage dependencies, automate workflows, and use powerful third-party libraries efficiently in your projects.</p>
 
 
-
+<hr><hr>
 ## 🌐 Creating Server with Node.js
 
 <p>Learn how to build a <b>basic backend server</b> using Node.js without any frameworks.</p>
@@ -577,7 +576,7 @@ res.end(JSON.stringify({
 
 
 
-
+<hr><hr>
 
 
 
@@ -702,7 +701,7 @@ app.use('/users', userRoutes);</code></pre>
 <p>Express.js simplifies backend development by providing powerful routing, middleware, and API handling capabilities.</p>
 
 
-
+<hr><hr>
 
 ## 🌐 RESTful API Development
 
@@ -825,7 +824,7 @@ ORDER BY created_at DESC;</code></pre>
 
 
 
-
+<hr><hr>
 
 
 ## 🗄️ Database (MongoDB + Mongoose)
@@ -944,7 +943,7 @@ const User = mongoose.model('User', userSchema);</code></pre>
 
 
 
-
+<hr><hr>
 
 
 
@@ -1057,3 +1056,107 @@ const refreshToken = jwt.sign({ id: 1 }, 'refreshSecret');</code></pre>
 
 <h3>✅ Summary</h3>
 <p>Authentication and authorization are essential for securing applications, protecting user data, and controlling access to system resources.</p>
+
+
+<hr>
+<hr>
+
+## ⚙️ Middleware & Advanced Express
+
+<p>Improve your backend architecture by using <b>advanced Express concepts</b> to build secure, scalable, and production-ready applications.</p>
+
+<hr>
+
+<h3>🎯 Goal</h3>
+<p>Write clean, secure, and production-ready backend code using middleware and best practices.</p>
+
+<hr>
+
+<div style="background:#0f172a; padding:20px; border-radius:10px; color:white; font-family:Arial;">
+
+<h2>📘 Topics to Learn</h2>
+
+<ul>
+  <li>Custom middleware</li>
+  <li>Global error handler</li>
+  <li>Request validation</li>
+  <li>Rate limiting</li>
+  <li>CORS</li>
+  <li>Helmet (security headers)</li>
+</ul>
+
+<hr>
+
+<h2>1️⃣ Custom Middleware</h2>
+<p>Create reusable logic that runs before route handlers.</p>
+
+<pre><code>const logger = (req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+};
+
+app.use(logger);</code></pre>
+
+<hr>
+
+<h2>2️⃣ Global Error Handler</h2>
+<p>Handle all errors in one place.</p>
+
+<pre><code>app.use((err, req, res, next) => {
+  console.error(err.message);
+  res.status(500).json({ error: 'Internal Server Error' });
+});</code></pre>
+
+<hr>
+
+<h2>3️⃣ Request Validation</h2>
+<p>Validate incoming data before processing.</p>
+
+<pre><code>app.post('/user', (req, res) => {
+  const { name } = req.body;
+
+  if (!name) {
+    return res.status(400).json({ error: 'Name is required' });
+  }
+
+  res.json({ message: 'Valid Data' });
+});</code></pre>
+
+<hr>
+
+<h2>4️⃣ Rate Limiting</h2>
+<p>Prevent abuse by limiting API requests.</p>
+
+<pre><code>const rateLimit = require('express-rate-limit');
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100
+});
+
+app.use(limiter);</code></pre>
+
+<hr>
+
+<h2>5️⃣ CORS</h2>
+<p>Allow or restrict cross-origin requests.</p>
+
+<pre><code>const cors = require('cors');
+
+app.use(cors());</code></pre>
+
+<hr>
+
+<h2>6️⃣ Helmet (Security)</h2>
+<p>Secure your app by setting HTTP headers.</p>
+
+<pre><code>const helmet = require('helmet');
+
+app.use(helmet());</code></pre>
+
+</div>
+
+<hr>
+
+<h3>✅ Summary</h3>
+<p>Advanced Express concepts help you build secure, maintainable, and production-ready backend systems with proper error handling and protection.</p>

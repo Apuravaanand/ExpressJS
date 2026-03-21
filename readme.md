@@ -127,3 +127,93 @@ const newArr = [...arr, 3];</code></pre>
 
 <h3>✅ Summary</h3>
 <p>Master these basics before moving to Node.js. They are used daily in backend development.</p>
+
+
+
+
+
+
+
+
+
+
+## 🚀 Introduction to Node.js
+
+<p>Get comfortable with the <b>Node.js environment</b> and understand how JavaScript runs outside the browser.</p>
+
+<hr>
+
+<h3>🎯 Goal</h3>
+<p>Run JavaScript outside the browser and build backend applications.</p>
+
+<hr>
+
+<div style="background:#0f172a; padding:20px; border-radius:10px; color:white; font-family:Arial;">
+
+<h2>📘 Topics to Learn</h2>
+
+<ul>
+  <li>What is Node.js</li>
+  <li>Node.js vs Browser JavaScript</li>
+  <li>V8 Engine</li>
+  <li>Installing Node.js & npm</li>
+  <li>Running first Node.js app</li>
+  <li>REPL</li>
+  <li>Global objects (__dirname, __filename)</li>
+</ul>
+
+<hr>
+
+<h2>1️⃣ What is Node.js?</h2>
+<p>Node.js is a runtime environment that allows you to run JavaScript on the server.</p>
+
+<hr>
+
+<h2>2️⃣ Node.js vs Browser JavaScript</h2>
+<ul>
+  <li><b>Browser JS:</b> Runs in browser, handles UI</li>
+  <li><b>Node.js:</b> Runs on server, handles backend logic</li>
+</ul>
+
+<hr>
+
+<h2>3️⃣ V8 Engine</h2>
+<p>Node.js uses Google Chrome’s <b>V8 Engine</b> to execute JavaScript code efficiently.</p>
+
+<hr>
+
+<h2>4️⃣ Install Node.js & npm</h2>
+
+<pre><code>node -v   // check Node version
+npm -v    // check npm version</code></pre>
+
+<hr>
+
+<h2>5️⃣ First Node.js App</h2>
+
+<pre><code>// app.js
+console.log("Hello Node.js");</code></pre>
+
+<pre><code>node app.js</code></pre>
+
+<hr>
+
+<h2>6️⃣ REPL (Interactive Mode)</h2>
+
+<pre><code>node</code></pre>
+
+<p>Now you can write JavaScript directly in terminal.</p>
+
+<hr>
+
+<h2>7️⃣ Global Objects</h2>
+
+<pre><code>console.log(__dirname);   // current folder
+console.log(__filename);  // current file</code></pre>
+
+</div>
+
+<hr>
+
+<h3>✅ Summary</h3>
+<p>Node.js allows developers to run JavaScript outside the browser and build scalable backend systems.</p>

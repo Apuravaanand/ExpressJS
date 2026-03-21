@@ -1160,3 +1160,577 @@ app.use(helmet());</code></pre>
 
 <h3>✅ Summary</h3>
 <p>Advanced Express concepts help you build secure, maintainable, and production-ready backend systems with proper error handling and protection.</p>
+
+<hr><hr>
+## 📁 File Upload & Cloud Storage
+
+<p>Handle real-world features like uploading images and managing files securely using <b>Node.js and cloud services</b>.</p>
+
+<hr>
+
+<h3>🎯 Goal</h3>
+<p>Manage user files efficiently with proper validation, storage, and security.</p>
+
+<hr>
+
+<div style="background:#0f172a; padding:20px; border-radius:10px; color:white; font-family:Arial;">
+
+<h2>📘 Topics to Learn</h2>
+
+<ul>
+  <li>Multer (file upload middleware)</li>
+  <li>File validation</li>
+  <li>Image upload</li>
+  <li>Cloudinary / AWS S3 basics</li>
+  <li>File security</li>
+</ul>
+
+<hr>
+
+<h2>1️⃣ Multer (File Upload)</h2>
+<p>Multer is used to handle multipart/form-data (file uploads).</p>
+
+<pre><code>const multer = require('multer');
+
+const upload = multer({ dest: 'uploads/' });
+
+app.post('/upload', upload.single('file'), (req, res) => {
+  res.send('File uploaded');
+});</code></pre>
+
+<hr>
+
+<h2>2️⃣ File Validation</h2>
+<p>Validate file type and size before uploading.</p>
+
+<pre><code>const upload = multer({
+  limits: { fileSize: 1024 * 1024 }, // 1MB
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === 'image/jpeg') {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid file type'));
+    }
+  }
+});</code></pre>
+
+<hr>
+
+<h2>3️⃣ Image Upload</h2>
+<p>Handle image uploads from client.</p>
+
+<pre><code>&lt;form action=\"/upload\" method=\"POST\" enctype=\"multipart/form-data\"&gt;
+  &lt;input type=\"file\" name=\"file\" /&gt;
+  &lt;button type=\"submit\"&gt;Upload&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+<hr>
+
+<h2>4️⃣ Cloud Storage (Cloudinary Example)</h2>
+<p>Store files in cloud instead of local storage.</p>
+
+<pre><code>const cloudinary = require('cloudinary').v2;
+
+cloudinary.uploader.upload('file.jpg', (result) => {
+  console.log(result.secure_url);
+});</code></pre>
+
+<hr>
+
+<h2>5️⃣ File Security</h2>
+<p>Protect your application from malicious uploads.</p>
+
+<ul>
+  <li>Validate file type & size</li>
+  <li>Rename files securely</li>
+  <li>Store files in cloud (avoid local exposure)</li>
+</ul>
+
+</div>
+
+<hr>
+
+<h3>✅ Summary</h3>
+<p>File upload and cloud storage are essential for real-world apps, enabling users to upload and manage files securely and efficiently.</p>
+
+<hr>
+<hr>
+
+
+## ⚙️ Environment & Configuration
+
+<p>Manage different environments and keep your application <b>secure, flexible, and production-ready</b> using environment variables and configuration patterns.</p>
+
+<hr>
+
+<h3>🎯 Goal</h3>
+<p>Enable safe and flexible deployment across development and production environments.</p>
+
+<hr>
+
+<div style="background:#0f172a; padding:20px; border-radius:10px; color:white; font-family:Arial;">
+
+<h2>📘 Topics to Learn</h2>
+
+<ul>
+  <li>.env files</li>
+  <li>Environment variables</li>
+  <li>Development vs Production setup</li>
+  <li>Config file structure</li>
+</ul>
+
+<hr>
+
+<h2>1️⃣ .env Files</h2>
+<p>Store sensitive data like API keys and database URLs.</p>
+
+<pre><code>PORT=3000
+DB_URL=mongodb://localhost:27017/app
+JWT_SECRET=mysecret</code></pre>
+
+<p><b>Install dotenv:</b></p>
+
+<pre><code>npm install dotenv</code></pre>
+
+<pre><code>require('dotenv').config();</code></pre>
+
+<hr>
+
+<h2>2️⃣ Environment Variables</h2>
+<p>Access variables using <b>process.env</b>.</p>
+
+<pre><code>const port = process.env.PORT;
+console.log(port);</code></pre>
+
+<hr>
+
+<h2>3️⃣ Dev vs Production Setup</h2>
+
+<ul>
+  <li><b>Development:</b> Debugging, local database</li>
+  <li><b>Production:</b> Optimized, secure configs</li>
+</ul>
+
+<pre><code>if (process.env.NODE_ENV === 'production') {
+  console.log('Running in production');
+}</code></pre>
+
+<hr>
+
+<h2>4️⃣ Config File Structure</h2>
+<p>Organize configuration in separate files.</p>
+
+<pre><code>// config/db.js
+module.exports = {
+  url: process.env.DB_URL
+};</code></pre>
+
+<pre><code>// app.js
+const db = require('./config/db');
+console.log(db.url);</code></pre>
+
+<hr>
+
+<h2>🔐 Best Practices</h2>
+
+<ul>
+  <li>Never commit .env file to GitHub</li>
+  <li>Use .env.example for reference</li>
+  <li>Keep secrets secure</li>
+  <li>Use different configs for dev & production</li>
+</ul>
+
+</div>
+
+<hr>
+
+<h3>✅ Summary</h3>
+<p>Environment configuration ensures your application is secure, scalable, and adaptable across different deployment stages.</p><hr><hr>
+
+
+
+## 🧪 Testing & Debugging
+
+<p>Ensure application quality by writing tests and debugging issues effectively. This is essential for building <b>reliable and maintainable backend systems</b>.</p>
+
+<hr>
+
+<h3>🎯 Goal</h3>
+<p>Build bug-free applications with proper testing and debugging practices.</p>
+
+<hr>
+
+<div style="background:#0f172a; padding:20px; border-radius:10px; color:white; font-family:Arial;">
+
+<h2>📘 Topics to Learn</h2>
+
+<ul>
+  <li>Unit testing</li>
+  <li>Integration testing</li>
+  <li>Jest / Mocha</li>
+  <li>API testing with Postman</li>
+  <li>Debugging Node.js</li>
+</ul>
+
+<hr>
+
+<h2>1️⃣ Unit Testing</h2>
+<p>Test individual functions or components.</p>
+
+<pre><code>// sum.js
+function sum(a, b) {
+  return a + b;
+}
+module.exports = sum;</code></pre>
+
+<pre><code>// sum.test.js (Jest)
+const sum = require('./sum');
+
+test('adds 2 + 3 = 5', () => {
+  expect(sum(2, 3)).toBe(5);
+});</code></pre>
+
+<hr>
+
+<h2>2️⃣ Integration Testing</h2>
+<p>Test how multiple components work together.</p>
+
+<pre><code>// Example using supertest
+const request = require('supertest');
+const app = require('./app');
+
+test('GET /users', async () => {
+  const res = await request(app).get('/users');
+  expect(res.statusCode).toBe(200);
+});</code></pre>
+
+<hr>
+
+<h2>3️⃣ Jest / Mocha</h2>
+<p>Popular testing frameworks for Node.js.</p>
+
+<pre><code>npm install jest -D
+npm install mocha -D</code></pre>
+
+<pre><code>// package.json
+"scripts": {
+  "test": "jest"
+}</code></pre>
+
+<hr>
+
+<h2>4️⃣ API Testing (Postman)</h2>
+<p>Test APIs manually using Postman.</p>
+
+<ul>
+  <li>Send GET, POST, PUT, DELETE requests</li>
+  <li>Check response status and data</li>
+  <li>Automate API testing workflows</li>
+</ul>
+
+<hr>
+
+<h2>5️⃣ Debugging Node.js</h2>
+<p>Find and fix bugs efficiently.</p>
+
+<pre><code>console.log('Debugging...');</code></pre>
+
+<pre><code>node --inspect app.js</code></pre>
+
+<ul>
+  <li>Use breakpoints in VS Code</li>
+  <li>Check logs and errors</li>
+  <li>Analyze stack traces</li>
+</ul>
+
+</div>
+
+<hr>
+
+<h3>✅ Summary</h3>
+<p>Testing and debugging ensure your application works correctly, reduces bugs, and improves code quality in production environments.</p>
+<hr><hr>
+
+
+
+
+## ⚡ Performance & Optimization
+
+<p>Improve your application's speed and scalability by understanding how Node.js works under the hood and applying performance best practices.</p>
+
+<hr>
+
+<h3>🎯 Goal</h3>
+<p>Build a <b>high-performance backend</b> that can handle large traffic efficiently.</p>
+
+<hr>
+
+<div style="background:#0f172a; padding:20px; border-radius:10px; color:white; font-family:Arial;">
+
+<h2>📘 Topics to Learn</h2>
+
+<ul>
+  <li>Event Loop</li>
+  <li>Async operations</li>
+  <li>Clustering</li>
+  <li>Caching (Redis basics)</li>
+  <li>Memory leaks</li>
+</ul>
+
+<hr>
+
+<h2>1️⃣ Event Loop</h2>
+<p>Node.js uses a <b>single-threaded event loop</b> to handle multiple requests efficiently.</p>
+
+<pre><code>console.log('Start');
+
+setTimeout(() => {
+  console.log('Async Task');
+}, 1000);
+
+console.log('End');</code></pre>
+
+<p><b>Output:</b> Start → End → Async Task</p>
+
+<hr>
+
+<h2>2️⃣ Async Operations</h2>
+<p>Use non-blocking code to improve performance.</p>
+
+<pre><code>// Blocking ❌
+const data = fs.readFileSync('file.txt');
+
+// Non-blocking ✅
+fs.readFile('file.txt', (err, data) => {
+  console.log(data);
+});</code></pre>
+
+<hr>
+
+<h2>3️⃣ Clustering</h2>
+<p>Use multiple CPU cores to scale your app.</p>
+
+<pre><code>const cluster = require('cluster');
+const os = require('os');
+
+if (cluster.isMaster) {
+  os.cpus().forEach(() => cluster.fork());
+} else {
+  console.log('Worker running');
+}</code></pre>
+
+<hr>
+
+<h2>4️⃣ Caching (Redis Basics)</h2>
+<p>Store frequently used data in memory for faster access.</p>
+
+<pre><code>// Example concept
+client.set('key', 'value');
+client.get('key');</code></pre>
+
+<hr>
+
+<h2>5️⃣ Memory Leaks</h2>
+<p>Avoid unnecessary memory usage.</p>
+
+<ul>
+  <li>Remove unused variables</li>
+  <li>Clear timers and listeners</li>
+  <li>Avoid global variables</li>
+</ul>
+
+</div>
+
+<hr>
+
+<h3>✅ Summary</h3>
+<p>Performance optimization ensures your backend is fast, scalable, and efficient under heavy load.</p>
+
+
+<hr>
+<hr>
+
+
+## 🚀 Deployment & DevOps Basics
+
+<p>Learn how to take your application from development to production by deploying it on servers and managing it efficiently.</p>
+
+<hr>
+
+<h3>🎯 Goal</h3>
+<p>Deploy real-world applications and manage them in production environments.</p>
+
+<hr>
+
+<div style="background:#0f172a; padding:20px; border-radius:10px; color:white; font-family:Arial;">
+
+<h2>📘 Topics to Learn</h2>
+
+<ul>
+  <li>Hosting options (Render, Railway, AWS)</li>
+  <li>Build process</li>
+  <li>PM2 (Process Manager)</li>
+  <li>Reverse proxy (Nginx basics)</li>
+  <li>CI/CD basics</li>
+</ul>
+
+<hr>
+
+<h2>1️⃣ Hosting Options</h2>
+<p>Deploy your app to cloud platforms.</p>
+
+<ul>
+  <li><b>Render / Railway:</b> Easy deployment</li>
+  <li><b>AWS:</b> Scalable cloud infrastructure</li>
+</ul>
+
+<hr>
+
+<h2>2️⃣ Build Process</h2>
+<p>Prepare your app for production.</p>
+
+<pre><code>npm install
+npm run build
+npm start</code></pre>
+
+<hr>
+
+<h2>3️⃣ PM2 (Process Manager)</h2>
+<p>Run and manage Node.js apps in production.</p>
+
+<pre><code>npm install -g pm2
+
+pm2 start app.js
+pm2 list
+pm2 restart app</code></pre>
+
+<hr>
+
+<h2>4️⃣ Reverse Proxy (Nginx)</h2>
+<p>Forward client requests to your Node.js server.</p>
+
+<pre><code># nginx config example
+server {
+  listen 80;
+
+  location / {
+    proxy_pass http://localhost:3000;
+  }
+}</code></pre>
+
+<hr>
+
+<h2>5️⃣ CI/CD Basics</h2>
+<p>Automate testing and deployment.</p>
+
+<ul>
+  <li>Continuous Integration (CI)</li>
+  <li>Continuous Deployment (CD)</li>
+</ul>
+
+<pre><code># Example workflow
+git push → build → test → deploy</code></pre>
+
+</div>
+
+<hr>
+
+<h3>✅ Summary</h3>
+<p>Deployment and DevOps practices help you run, scale, and maintain your application reliably in real-world environments.</p>
+
+
+<hr><hr>
+
+## 🚀 Real-World Projects
+
+<p>Practice is the key to mastery. Build real-world projects to strengthen your backend skills and become <b>job-ready</b>.</p>
+
+<hr>
+
+<h3>🎯 Goal</h3>
+<p>Apply concepts in real applications and build a strong portfolio.</p>
+
+<hr>
+
+<div style="background:#0f172a; padding:20px; border-radius:10px; color:white; font-family:Arial;">
+
+<h2>📘 Projects to Build</h2>
+
+<ul>
+  <li>REST API</li>
+  <li>Authentication system</li>
+  <li>Blog backend</li>
+  <li>E-commerce backend</li>
+  <li>Social media backend</li>
+  <li>Real-time chat app (Socket.io)</li>
+</ul>
+
+<hr>
+
+<h2>1️⃣ REST API</h2>
+<p>Build a structured API with proper routes, controllers, and database integration.</p>
+
+<pre><code>GET /api/users
+POST /api/users
+PUT /api/users/:id
+DELETE /api/users/:id</code></pre>
+
+<hr>
+
+<h2>2️⃣ Authentication System</h2>
+<p>Implement secure login and registration.</p>
+
+<pre><code>// Features
+- JWT authentication
+- Password hashing (bcrypt)
+- Protected routes</code></pre>
+
+<hr>
+
+<h2>3️⃣ Blog Backend</h2>
+<p>Create APIs for blog management.</p>
+
+<pre><code>// Features
+- Create / Read / Update / Delete posts
+- Comments system
+- User authentication</code></pre>
+
+<hr>
+
+<h2>4️⃣ E-commerce Backend</h2>
+<p>Handle real-world business logic.</p>
+
+<pre><code>// Features
+- Products & categories
+- Cart & orders
+- Payment integration (basic)</code></pre>
+
+<hr>
+
+<h2>5️⃣ Social Media Backend</h2>
+<p>Build scalable systems like modern apps.</p>
+
+<pre><code>// Features
+- User profiles
+- Follow / unfollow
+- Posts & likes</code></pre>
+
+<hr>
+
+<h2>6️⃣ Real-Time Chat App</h2>
+<p>Use WebSockets for live communication.</p>
+
+<pre><code>const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+  socket.on('message', (msg) => {
+    io.emit('message', msg);
+  });
+});</code></pre>
+
+</div>
+
+<hr>
+
+<h3>✅ Summary</h3>
+<p>Building real-world projects helps you apply knowledge, gain experience, and become confident in backend development.</p>

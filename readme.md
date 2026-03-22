@@ -1,5 +1,3 @@
-
-
 <div class="card" style="
   background:#0f172a;
   padding:20px;

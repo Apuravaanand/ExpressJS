@@ -1,50 +1,16 @@
-<!-- Add this style once at top -->
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #e5e7eb;
-    background-color: #020617;
-  }
 
-  h1 { color: #22c55e; }
-  h2 { color: #38bdf8; }
-  h3 { color: #facc15; }
 
-  p { color: #cbd5f5; }
+<div class="card" style="
+  background:#0f172a;
+  padding:20px;
+  border-radius:10px;
+  color:#e5e7eb;
+  font-family:Arial, sans-serif;
+  line-height:1.6;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  border:1px solid #1e293b;
+">
 
-  b { color: #f97316; }
-
-  code {
-    color: #22c55e;
-  }
-
-  pre {
-    background: #020617;
-    padding: 10px;
-    border-radius: 8px;
-    color: #22c55e;
-    overflow-x: auto;
-  }
-
-  ul li {
-    color: #cbd5f5;
-    margin-bottom: 6px;
-  }
-
-  hr {
-    border-color: #1e293b;
-  }
-
-  .card {
-    background:#0f172a;
-    padding:20px;
-    border-radius:10px;
-    color:white;
-  }
-</style>
-
-<div class="card">
 
 # 🚀 JavaScript Fundamentals (For Node.js Developers)
 
